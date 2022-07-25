@@ -1,0 +1,14 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h2>退会</h2>
+</div>
+<p>
+    本当に退会しますか？<br>
+</p>
+<a href="{% url 'food_manager:account_edit' request.user.pk %}">キャンセル</a>
+<form method="POST">{% csrf_token %}
+    <button type="submit">退会</button>
+</form>
+{% endblock %}

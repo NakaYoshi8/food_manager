@@ -1,0 +1,14 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h1>カテゴリ「{{ category }}」のタグを選択する</h1>
+</div>
+<form method="POST">{% csrf_token %}
+    {% for tag in tag_list %}
+        <label><input type="checkbox" name="tag" value="{{ tag.pk }}"
+                      {% if category == tag.category %}checked{% endif %}>{{ tag }}</label><br>
+    {% endfor %}
+    <button type="submit">変更を保存</button>
+</form>
+{% endblock %}

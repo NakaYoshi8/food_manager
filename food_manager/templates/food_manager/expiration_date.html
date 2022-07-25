@@ -1,0 +1,39 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h1>賞味期限</h1>
+</div>
+<div class="topic-container">
+    <div class="heading-container">
+        <h2>賞味期限間近</h2>
+    </div>
+    <div class="food_list">
+        {% if not near_expiration_food_list %}
+        <p class="does-not-exist-message">賞味期限間近の食品はありません</p>
+        {% else %}
+        <ul>
+        {% for food in near_expiration_food_list %}
+            <li><a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+<div class="topic-container">
+    <div class="heading-container">
+        <h2>賞味期限切れ</h2>
+    </div>
+    <div class="food_list">
+        {% if not expired_food_list %}
+        <p class="does-not-exist-message">賞味期限切れの食品はありません</p>
+        {% else %}
+        <ul>
+        {% for food in expired_food_list %}
+            <li><a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

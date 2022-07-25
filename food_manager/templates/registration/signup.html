@@ -1,0 +1,12 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h2>会員登録</h2>
+</div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">ユーザー登録</button>
+</form>
+{% endblock %}

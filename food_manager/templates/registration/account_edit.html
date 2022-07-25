@@ -1,0 +1,46 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h2>アカウント設定</h2>
+</div>
+<div class="account-edit-menu">
+    <div class="topic-container">
+        <div class="heading-container">
+            <h3>ユーザ名</h3>
+        </div>
+        <form method="POST">{% csrf_token %}
+            {{ username_form }}
+            <button type="submit" name="username-edit-btn">変更を保存</button>
+        </form>
+    </div>
+    <div class="topic-container">
+        <div class="heading-container">
+            <h3>メールアドレス</h3>
+        </div>
+        <form method="POST">{% csrf_token %}
+            {{ email_form }}
+            <button type="submit" name="email-edit-btn">変更を保存</button>
+        </form>
+    </div>
+    <div class="topic-container">
+        <div class="heading-container">
+            <h3>パスワード</h3>
+        </div>
+        **********
+        <a href="{% url 'food_manager:password_change' %}">変更</a>
+    </div>
+    <div class="topic-container">
+        <div class="heading-container">
+            <h3>ユーザID</h3>
+        </div>
+        {{ user.pk }}
+    </div>
+    <div>
+        <a href="{% url 'logout' %}">ログアウト</a>
+    </div>
+    <div>
+        <a href="{% url 'food_manager:account_delete' request.user.pk %}">退会</a>
+    </div>
+</div>
+{% endblock %}

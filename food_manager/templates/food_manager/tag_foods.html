@@ -1,0 +1,14 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h1>タグ「{{ tag }}」の食品を設定する</h1>
+</div>
+<form method="POST">{% csrf_token %}
+    {% for food in food_list %}
+        <label><input type="checkbox" name="food" value="{{ food.pk }}"
+                    {% if tag in food.tags.all %}checked{% endif %}>{{ food }}</label><br>
+    {% endfor %}
+    <button type="submit">設定を保存</button>
+</form>
+{% endblock %}

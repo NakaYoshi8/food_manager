@@ -1,0 +1,15 @@
+{% extends 'food_manager/base.html' %}
+
+{% block content %}
+<div class="heading-container">
+    <h1>タグ「{{ tag }}」の削除</h1>
+</div>
+<p>
+    本当に削除しますか？<br>
+    （関連する食品は削除されません。）
+</p>
+<a href="{% url 'food_manager:tag' tag.pk %}">キャンセル</a>
+<form method="POST">{% csrf_token %}
+    <button type="submit">完全に削除</button>
+</form>
+{% endblock %}

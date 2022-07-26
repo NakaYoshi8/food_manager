@@ -4,7 +4,7 @@
 <div class="heading-container">
     <h1>ごみ箱</h1>
 </div>
-<div class="food-list">
+<div class="food-list" id="trashed-food-list">
     <form method="POST">{% csrf_token %}
     {% if not food_list %}
         <p class="does-not-exist-message">ごみ箱に食品がありません</p>
@@ -13,8 +13,8 @@
         <label><input class="trash-check" type="checkbox" name="food" value="{{ food.pk }}">{{ food }}</label><br>
     {% endfor %}
     {% endif %}
-        <button id="food-delete-btn" type="submit" name="delete-btn" disabled>選択した項目を完全に削除</button>
-        <button id="food-restore-btn" type="submit" name="restore-btn" disabled>選択した項目を元に戻す</button>
+        <button id="food-delete-btn" type="submit" name="delete-btn">選択した項目を完全に削除</button>
+        <button id="food-restore-btn" type="submit" name="restore-btn">選択した項目を元に戻す</button>
     </form>
 </div>
 {% endblock %}

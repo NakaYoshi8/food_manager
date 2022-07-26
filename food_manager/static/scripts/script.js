@@ -1,4 +1,5 @@
 // ダッシュボード
+// カテゴリリスト
 new Vue({
     el: '#dashboard-category',
     data: {
@@ -17,6 +18,7 @@ new Vue({
     },
 })
 
+// タグリスト
 new Vue({
     el: '#dashboard-tag',
     data: {
@@ -35,6 +37,7 @@ new Vue({
     },
 })
 
+// 食品リスト
 new Vue({
     el: '#dashboard-food',
     data: {
@@ -99,14 +102,15 @@ new Vue({
     },
 })
 
+// ごみ箱ページ
+// 1つ以上にチェックがついている場合は、ボタンを活性化
+// 1つもついていない場合は、ボタンを非活性化
+/* new Vue({
+    el: '#trashed-food-list',
+    data: {
 
-// jQueryのコード(Vueに置換予定)
-$(function() {
-
-    // ごみ箱ページで、1つ以上食品にチェックを付けると、完全に削除/元に戻すボタンを活性化する
-    $('.trash-check').click(function() {
-        $("#food-delete-btn").prop('disabled', false);
-        $("#food-restore-btn").prop('disabled', false);
-    });
-
-});
+    },
+    methods: {
+        
+    },
+}) */

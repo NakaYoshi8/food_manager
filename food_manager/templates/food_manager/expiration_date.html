@@ -14,7 +14,11 @@
         {% else %}
         <ul>
         {% for food in near_expiration_food_list %}
-            <li><a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a></li>
+            <li>
+                <a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a>
+                <span class="food-information">{{ food.date }}</span>
+                <span class="food-information">{{ food.quantity }}{{ food.unit }}</span>
+            </li>
         {% endfor %}
         </ul>
         {% endif %}
@@ -30,7 +34,11 @@
         {% else %}
         <ul>
         {% for food in expired_food_list %}
-            <li><a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a></li>
+            <li>
+                <a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a>
+                <span class="food-information">{{ food.date }}</span>
+                <span class="food-information">{{ food.quantity }}{{ food.unit }}</span>
+            </li>
         {% endfor %}
         </ul>
         {% endif %}

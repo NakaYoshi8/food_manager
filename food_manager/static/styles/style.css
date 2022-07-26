@@ -114,12 +114,14 @@ header {
 
 .heading-container h1 {
     float: left;
+    font-size: 32px;
     margin-top: 0;
     margin-right: 20px;
 }
 
 .heading-container h2 {
     float: left;
+    font-size: 24px;
     margin-top: 0;
     margin-right: 15px;
 }
@@ -132,7 +134,7 @@ header {
 
 .page-description {
     font-size: 14px;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     padding-bottom: 0;
 }
 
@@ -144,6 +146,12 @@ header {
 .date-alert {
     color: #d44;
     margin-top: 20px;
+}
+
+.food-information {
+    color: #888;
+    font-size: 14px;
+    margin-left: 10px;
 }
 
 .food-tags ul {

@@ -4,24 +4,28 @@
 <div class="heading-container">
     <h1>ダッシュボード</h1>
 </div>
-<div class="topic-container" id="dashboard-category">
+<div class="topic-container"  id="dashboard-food">
     <div class="heading-container">
-        <h2>カテゴリ</h2>
-        <div class="btn" id="category-add" title="カテゴリを追加" @click="changeShow" v-text="btnText"></div>
+        <h2>食品</h2>
+        <div class="btn" id="food-add" title="食品を追加" @click="changeShow" v-text="btnText"></div>
     </div>
     <div v-show="isActive">
-        <form class="add-form" id="category-add-form" method="POST">{% csrf_token %}
-            <h3>カテゴリを追加</h3>
-            {{ category_add_form.as_p }}
-            <button type="submit" name="category-add-btn">保存</button>
+        <form class="add-form" id="food-add-form" method="POST">{% csrf_token %}
+            <h3>食品を追加</h3>
+            {{ food_add_form.as_p }}
+            <button type="submit" name="food-add-btn">保存</button>
         </form>
     </div>
-    {% if not category_list %}
-    <p class="does-not-exist-message">カテゴリがありません</p>
+    {% if not food_list %}
+    <p class="does-not-exist-message">食品がありません</p>
     {% else %}
     <ul>
-        {% for category in category_list %}
-            <li><a href="{% url 'food_manager:category' category.pk %}">{{ category }}</a></li>
+        {% for food in food_list %}
+            <li>
+                <a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a>
+                <span class="food-information">{{ food.date }}</span>
+                <span class="food-information">{{ food.quantity }}{{ food.unit }}</span>
+            </li>
         {% endfor %}
     </ul>
     {% endif %}
@@ -48,24 +52,24 @@
     </ul>
     {% endif %}
 </div>
-<div class="topic-container"  id="dashboard-food">
+<div class="topic-container" id="dashboard-category">
     <div class="heading-container">
-        <h2>食品</h2>
-        <div class="btn" id="food-add" title="食品を追加" @click="changeShow" v-text="btnText"></div>
+        <h2>カテゴリ</h2>
+        <div class="btn" id="category-add" title="カテゴリを追加" @click="changeShow" v-text="btnText"></div>
     </div>
     <div v-show="isActive">
-        <form class="add-form" id="food-add-form" method="POST">{% csrf_token %}
-            <h3>食品を追加</h3>
-            {{ food_add_form.as_p }}
-            <button type="submit" name="food-add-btn">保存</button>
+        <form class="add-form" id="category-add-form" method="POST">{% csrf_token %}
+            <h3>カテゴリを追加</h3>
+            {{ category_add_form.as_p }}
+            <button type="submit" name="category-add-btn">保存</button>
         </form>
     </div>
-    {% if not food_list %}
-    <p class="does-not-exist-message">食品がありません</p>
+    {% if not category_list %}
+    <p class="does-not-exist-message">カテゴリがありません</p>
     {% else %}
     <ul>
-        {% for food in food_list %}
-            <li><a href="{% url 'food_manager:food' food.pk %}">{{ food }}</a></li>
+        {% for category in category_list %}
+            <li><a href="{% url 'food_manager:category' category.pk %}">{{ category }}</a></li>
         {% endfor %}
     </ul>
     {% endif %}

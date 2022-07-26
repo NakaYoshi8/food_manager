@@ -1,7 +1,7 @@
 // ダッシュボード
-// カテゴリリスト
+// 食品リスト
 new Vue({
-    el: '#dashboard-category',
+    el: '#dashboard-food',
     data: {
         isActive: false,
         btnText: '+',
@@ -37,9 +37,9 @@ new Vue({
     },
 })
 
-// 食品リスト
+// カテゴリリスト
 new Vue({
-    el: '#dashboard-food',
+    el: '#dashboard-category',
     data: {
         isActive: false,
         btnText: '+',
